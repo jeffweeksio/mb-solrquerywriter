@@ -4,7 +4,7 @@ This package includes a
 [QueryResponseWriter](https://cwiki.apache.org/confluence/display/solr/Response+Writers)
 for Apache Solr that will generate
 [mmd-schema](https://github.com/metabrainz/mmd-schema) compliant responses
-for Solr cores running on an [mbsssss](https://github.com/mineo/mbsssss) schema.
+for Solr cores running on an [mbsssss](https://github.com/jeffweeksio/mbsssss) schema.
 
 ## Installation
 
@@ -12,7 +12,7 @@ for Solr cores running on an [mbsssss](https://github.com/mineo/mbsssss) schema.
 
 Clone the repository with Git:
 
-    git clone https://github.com/metabrainz/mmd-schema.git
+    git clone https://github.com/jeffweeksio/mmd-schema.git
 
 And install the package:
 
@@ -23,7 +23,7 @@ And install the package:
 
 Clone the repository with Git:
 
-    git clone --recursive https://github.com/mineo/mb-solrquerywriter.git
+    git clone --recursive https://github.com/jeffweeksio/mb-solrquerywriter.git
 
 Navigate to the **mb-solrquerywriter** folder in a terminal and build a JAR
 file:
@@ -52,7 +52,7 @@ To do that, add the following lines as children of the **config** element:
 ```
 
 The solrconfig.xml of the cores defined by
-[mbsssss](https://github.com/mineo/mbsssss) already includes this snippet, as
+[mbsssss](https://github.com/jeffweeksio/mbsssss) already includes this snippet, as
 well as the **sharedLib** configuration in the solr.xml file.
 
 **$entitytype** needs to be replaced by the entity type of the documents in the store.
@@ -64,7 +64,6 @@ Valid values are:
 - cdstub
 - editor
 - event
-- freedb
 - instrument
 - label
 - place
@@ -81,15 +80,6 @@ After that, two new values for the
 [wt paramter](https://cwiki.apache.org/confluence/display/solr/Response+Writers)
 are available:
 
-- **mbxml**, which returns mmd-compliant XML documents
+- **mbxml**, which returns mmd-compliant XML documents (default)
 - **mbjson**, which returns JSON document as described by
   [this page](https://beta.musicbrainz.org/doc/Development/JSON_Web_Service)
-
-At the moment, the
-[field list](https://cwiki.apache.org/confluence/display/solr/Common+Query+Parameters#CommonQueryParameters-Thefl)
-parameter of each query needs to include the **score** field for the code to
-work correctly.
-
-A branch of the MusicBrainz server that can query a Solr server with this
-QueryResponseWriter is available at
-[Bitbucket](https://bitbucket.org/mineo/musicbrainz-server/branch/solr-search).

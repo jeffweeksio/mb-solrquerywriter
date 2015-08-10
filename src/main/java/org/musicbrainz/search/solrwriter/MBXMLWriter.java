@@ -324,6 +324,9 @@ public class MBXMLWriter implements QueryResponseWriter {
 		NamedList vals = res.getValues();
 
 		ResultContext con = (ResultContext) vals.get("response");
+		
+		System.out.println("con.docs.matches(): " + con.docs.matches());
+		System.out.println("con.docs.offset(): " + con.docs.offset());
 
 		metadatalistwrapper.setCountAndOffset(con.docs.matches(),
 				con.docs.offset());
